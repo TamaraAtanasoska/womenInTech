@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/highcharts/js/highcharts.js" type="text/javascript"></script>
+  <script src="{% block graph %}{% endblock %}" type="text/javascript"></script>
+    </head>
+    <body>
+    <div class="container">
+    {% block content %}
+    {% endblock %}
+    </div>
+    </body>
+</html>

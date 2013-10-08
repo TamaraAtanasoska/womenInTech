@@ -1,17 +1,14 @@
 from django.conf.urls import patterns, include, url
+from womenInTech.settings import MEDIA_ROOT
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'womenInTech.views.home', name='home'),
-    # url(r'^womenInTech/', include('womenInTech.foo.urls')),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
+    url(r'^$', 'womenInTech.views.graphs_list'),
+    url(r'^detail/(?P<slug>.*)/', 'womenInTech.views.detail'),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 )

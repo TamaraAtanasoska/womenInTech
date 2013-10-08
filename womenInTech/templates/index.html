@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Wellcome {{ user }}!</h2>
+<h2>Graph list:</h2>
+ <div class="list-group">
+          {% for graph in graphs_list %}
+            {{ graph.title }}<br>
+            {{ graph.description|truncatechars:20 }}<br>
+            <a href="detail/{{graph.slug}}">See graph</a>
+            <br><br>
+          {% endfor %}
+        </div>
+
+{% endblock %}
